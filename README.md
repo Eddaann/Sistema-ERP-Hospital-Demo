@@ -5,72 +5,44 @@
 ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu_Server-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 
-> **Proyecto:** Sistema Integral para el H. Ayuntamiento de Chiconcuac.
-> **Rol:** Ingeniero Full Stack (Módulo de Infraestructura y Equipo Médico).
+> **Contexto:** Sistema Integral de 9 módulos para el H. Ayuntamiento de Chiconcuac.
+> **Mi Rol:** Desarrollador Full Stack (Responsable del Módulo de Servicios Generales e Infraestructura).
 
 ## 📖 Descripción del Proyecto
-Este sistema es un ERP modular desarrollado para optimizar la gestión administrativa y médica del **Hospital Municipal de Chiconcuac**.
+Este sistema es un ERP masivo diseñado para digitalizar todas las áreas del Hospital Municipal. Fue un esfuerzo colaborativo donde cada módulo se conecta a una base central.
 
-Mi responsabilidad principal fue el diseño y desarrollo del módulo de **Servicios Generales**, encargado de la gestión del ciclo de vida de los activos hospitalarios (desde incubadoras hasta equipos de rayos X). El sistema resuelve la problemática del control de inventario, trazabilidad de mantenimiento y auditoría de equipos mediante tecnologías digitales.
+Mi responsabilidad principal fue la **arquitectura y desarrollo completo del módulo de Servicios Generales**, encargado de la gestión del ciclo de vida de los activos hospitalarios (inventarios, mantenimiento y bajas).
 
 ---
 
-## 📸 Tour Visual & Funcionalidades
+## 📸 Funcionalidades de mi Módulo
 
-### 1. Arquitectura Modular y Dashboard
-El sistema cuenta con una arquitectura escalable dividida por departamentos. El Dashboard proporciona métricas en tiempo real sobre el estado operativo de los equipos (Funcionando, Parcial, Sin Funcionar), permitiendo la toma de decisiones rápida por parte de la dirección.
+### 1. Dashboard y Métricas
+Implementé un tablero de control específico para el área de mantenimiento, permitiendo visualizar el estado operativo de los equipos en tiempo real.
+![Dashboard](assets/dashboard.png)
 
-| Menú Principal de Módulos | Dashboard de Servicios Generales |
-|:---:|:---:|
-| ![Menú](assets/login_menu.png) | ![Dashboard](assets/dashboard.png) |
-
-### 2. Gestión de Inventario Inteligente
-Tabla dinámica desarrollada con **Livewire** que permite filtrado instantáneo por estado, área o garantía.
-* **Semáforo de Estados:** Indicadores visuales para identificar equipos críticos.
-* **Acciones Rápidas:** Acceso directo a edición, reportes de mantenimiento, procesos de baja y generación de QR.
-* **Exportación de Datos:** Generación de reportes en CSV para auditorías externas.
-
+### 2. Gestión de Inventario con Livewire
+Desarrollé la lógica para el filtrado dinámico de miles de activos. El reto fue mantener la fluidez de la interfaz utilizando **Livewire** para evitar recargas de página innecesarias.
 ![Inventario](assets/inventario.png)
 
-### 3. Sistema de Trazabilidad con Códigos QR 📱
-Implementé un sistema de generación dinámica de QRs para cada activo fijo.
-* **Impresión Flexible:** El usuario puede seleccionar lotes específicos de equipos (ej. "Solo el área de Urgencias") o imprimir etiquetas individuales.
-* **Escaneo Móvil:** Al escanear el código físico pegado en el equipo, el personal accede a una **Vista Móvil (PWA)** que muestra el historial clínico del aparato, últimos mantenimientos y ubicación, sin necesidad de buscar en una PC.
+### 3. Sistema de Trazabilidad QR 📱
+Diseñé e integré la generación de etiquetas QR.
+* **Mi aporte:** Logré que el sistema generara PDFs masivos con códigos QR que, al ser escaneados, redirigen a una vista móvil (PWA) con la ficha técnica del equipo.
+![Impresión QR](assets/qr_print.png)
 
-| Generación de Etiquetas (Batch) | Vista Móvil al Escanear |
-|:---:|:---:|
-| ![Impresión QR](assets/qr_print.png) | ![Vista Móvil](assets/qr_mobile_view.png) |
-
-### 4. Control de Mantenimientos y Bajas
-Digitalización completa de las bitácoras de servicio.
-* **Historial Clínico del Equipo:** Registro detallado de mantenimientos preventivos y correctivos.
-* **Gestión de Bajas:** Flujo de aprobación para retirar equipos obsoletos, documentando el motivo (costo de reparación, antigüedad) para transparencia administrativa.
-* **Reportes PDF:** Generación automática de actas administrativas en formato PDF listas para firmar.
-
-| Historial de Mantenimientos | Control de Bajas |
-|:---:|:---:|
-| ![Mantenimientos](assets/mantenimientos.png) | ![Bajas](assets/bajas.png) |
+### 4. Flujos de Mantenimiento y Bajas
+Digitalicé los procesos burocráticos de "Bajas de Activo". El sistema genera automáticamente las actas administrativas en PDF listas para firma, reduciendo el error humano.
+![Bajas](assets/bajas.png)
 
 ---
 
-## ⚙️ Retos Técnicos Resueltos
+## 🛠 Stack Tecnológico & Colaboración
 
-* **Generación PDF/QR Masiva:** Se optimizó el uso de memoria en el servidor para permitir la generación de cientos de códigos QR en un solo archivo PDF sin exceder el *timeout* de PHP.
-* **Despliegue On-Premise:** Configuración de un entorno de producción en una red local (Intranet) utilizando **Ubuntu Server**, asegurando que el sistema fuera accesible desde cualquier consultorio sin depender de internet externo.
-* **Reactividad con Livewire:** Implementación de componentes reactivos para búsquedas y filtros en tiempo real sin recargar la página (SPA feel), mejorando la experiencia de usuario en equipos con hardware limitado.
-
----
-
-## 🛠 Stack Tecnológico
-
-* **Backend:** PHP 8.2, Laravel 10.
-* **Frontend:** Blade, Livewire, TailwindCSS, Alpine.js.
-* **Base de Datos:** MySQL (Relacional optimizada con índices para búsquedas rápidas).
-* **Servicios:** Librerías `dompdf` para reportes y `simple-qrcode` para generación matricial.
-* **Infraestructura:** Virtualización en Ubuntu Server.
+* **Trabajo en Equipo:** Integración de mi módulo con el sistema de autenticación central y bases de datos compartidas.
+* **Infraestructura:** Configuración del servidor **Ubuntu** local para el despliegue de todos los módulos del equipo.
+* **Tecnologías:** PHP 8.2, Laravel 10, MySQL, TailwindCSS.
 
 ---
 
 ### 📬 Contacto
-¿Te interesa saber más sobre la arquitectura de este proyecto?
 [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/eddaann)

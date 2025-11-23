@@ -73,4 +73,4 @@ Digitalización completa de las bitácoras de servicio.
 
 ### 📬 Contacto
 ¿Te interesa saber más sobre la arquitectura de este proyecto?
-[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/TU-USUARIO)
+[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/eddaann)
